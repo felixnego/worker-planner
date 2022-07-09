@@ -1,14 +1,15 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
+import config from "../config";
 
 
 export const PostgresDataSource = new DataSource({
     type: "postgres",
-    host: "localhost",
-    port: 5432,
-    username: "admin",
-    password: "admin",
-    database: "worker-planner",
+    host: config.databaseHost,
+    port: parseFloat(config.databasePort),
+    username: config.databaseUser,
+    password: config.databasePassword,
+    database: config.databaseName,
     synchronize: true,
     logging: false,
     entities: ["src/entity/*{.js,.ts}"],
