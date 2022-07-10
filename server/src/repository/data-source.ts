@@ -20,7 +20,7 @@ export class RepositoryLayer extends DataSource {
             database: config.databaseName,
             synchronize: true,
             logging: false,
-            entities: ["src/entity/*{.js,.ts}"],
+            entities: ["src/entity/*.ts"],
             migrations: ["src/migration/*{.js,.ts}"],
             migrationsTableName: "migrations",
             subscribers: [],
