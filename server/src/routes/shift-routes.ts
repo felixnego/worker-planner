@@ -1,7 +1,6 @@
 import { Router, Request, Response } from "express";
 import { WorkerService } from "../service/worker-service";
 import { Container } from "typedi";
-import { Worker } from "../entity/worker";
 import { authenticateToken } from "../middleware/authenticate-token";
 import { ShiftService } from "../service/shift-service";
 
@@ -35,6 +34,16 @@ shiftRoutes.post('/worker/:id/shift', authenticateToken, async (req: Request, re
         return res.sendStatus(200);
     }
     return res.sendStatus(404);
+})
+
+shiftRoutes.delete('/worker/:id/shift/:shiftId', authenticateToken, async (req: Request, res: Response) => {
+    await shiftService.deleteShift(parseFloat(req.params.shiftId));
+    return res.sendStatus(200);
+})
+
+shiftRoutes.put('/worker/:id/shift/:shiftId', authenticateToken, async (req: Request, res: Response) => {
+    const newShift = await shiftService.updateShift(parseFloat(req.params.shiftId), req.body);
+    return res.json(newShift);
 })
 
 export default shiftRoutes;
