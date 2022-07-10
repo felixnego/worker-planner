@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Shift } from "./shift";
 
 
 @Entity()
@@ -12,4 +13,7 @@ export class Worker {
 
     @Column()
     password: string
+
+    @OneToMany(() => Shift, (shift) => shift.worker)
+    shifts: Shift[]
 }
