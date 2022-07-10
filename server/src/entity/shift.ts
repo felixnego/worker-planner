@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, ManyToOne } from "t
 import { Worker } from "./worker";
 
 
-enum Day {
+export enum Day {
     MONDAY = "monday",
     TUESDAY = "tuesday",
     WEDNESDAY = "wednesday",
@@ -10,7 +10,7 @@ enum Day {
     FRIDAY = "friday"
 }
 
-enum TimeSlot {
+export enum TimeSlot {
     ONE = "00-08",
     TWO = "08-16",
     THREE = "16-24"

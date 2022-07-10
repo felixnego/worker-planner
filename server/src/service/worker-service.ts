@@ -15,8 +15,11 @@ export class WorkerService {
 
     async getAllWorkers(): Promise<Worker[]> {
         const results = await this.repositoryLayer.getRepository(Worker).find();
-        // const results = await repository.getRepository(Worker).find();
         return results;
+    }
+
+    async findWorkerById(id: number): Promise<Worker | null> {
+        return await this.repositoryLayer.getRepository(Worker).findOneBy({ id: id})
     }
 
     async addNewWorker(workerData: { name: string, password: string }): Promise<Worker> {

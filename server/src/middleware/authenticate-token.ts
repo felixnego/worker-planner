@@ -5,7 +5,7 @@ import Container from "typedi";
 
 const authService: AuthService = Container.get(AuthService);
 
-function authenticateToken(req: Request, res: Response, next: NextFunction) {
+export function authenticateToken(req: Request, res: Response, next: NextFunction) {
     const authHeader = req.headers['authorization'];
     const token: string | undefined = authHeader && authHeader.split(' ')[1];
   

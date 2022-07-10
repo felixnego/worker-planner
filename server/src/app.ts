@@ -4,6 +4,7 @@ import config from './config';
 import { RepositoryLayer } from "./repository/data-source";
 import workerRoutes from "./routes/worker-routes";
 import loginRoutes from "./routes/login";
+import shiftRoutes from "./routes/shift-routes";
 import { Container } from "typedi";
 
 
@@ -26,6 +27,7 @@ app.get('/', (req: Request, res: Response) => {
 })
 app.use(workerRoutes);
 app.use(loginRoutes);
+app.use(shiftRoutes);
 
 
 app.listen(PORT, () => {
