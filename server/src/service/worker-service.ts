@@ -32,7 +32,7 @@ export class WorkerService {
         // check is the worker name and password exist for login
         const worker = this.repositoryLayer.getRepository(Worker).findOneBy({
             name: name,
-            password: crypto.createHash('sha256').update(password).digest('hex');
+            password: crypto.createHash('sha256').update(password).digest('hex')
         })
         return worker;
     }

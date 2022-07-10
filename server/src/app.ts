@@ -3,6 +3,7 @@ import express, { Express, Request, Response } from "express";
 import config from './config';
 import { RepositoryLayer } from "./repository/data-source";
 import workerRoutes from "./routes/worker-routes";
+import loginRoutes from "./routes/login";
 import { Container } from "typedi";
 
 
@@ -24,6 +25,7 @@ app.get('/', (req: Request, res: Response) => {
     res.status(200).send('Server Online!');
 })
 app.use(workerRoutes);
+app.use(loginRoutes);
 
 
 app.listen(PORT, () => {

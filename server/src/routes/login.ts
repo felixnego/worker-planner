@@ -10,5 +10,14 @@ const authService: AuthService = Container.get(AuthService);
 
 
 loginRoutes.post('/login', async (req: Request, res: Response) => {
-    
+    const worker = await workerService.checkWorkerExists(req.body.name, req.body.password);
+    if (worker !== null) {
+        const token = authService.generateAccessToken(req.body.name);
+        res.status(200);
+        return res.json(token);
+    }
+
+    return res.sendStatus(403);
 })
+
+export default loginRoutes;
