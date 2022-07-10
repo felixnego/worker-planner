@@ -14,7 +14,10 @@ loginRoutes.post('/login', async (req: Request, res: Response) => {
     if (worker !== null) {
         const token = authService.generateAccessToken(req.body.name);
         res.status(200);
-        return res.json(token);
+        return res.json({
+            token: token,
+            id: worker.id
+        });
     }
 
     return res.sendStatus(403);

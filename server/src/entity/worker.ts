@@ -15,5 +15,5 @@ export class Worker {
     password: string
 
     @OneToMany(() => Shift, (shift) => shift.worker)
-    shifts: Shift[]
+    shifts?: Shift[]
 }
