@@ -6,6 +6,7 @@ import workerRoutes from "./routes/worker-routes";
 import loginRoutes from "./routes/login";
 import shiftRoutes from "./routes/shift-routes";
 import { Container } from "typedi";
+import cors from 'cors';
 
 
 // Establish database connection
@@ -18,6 +19,7 @@ repositoryLayer.initialize()
 // Set up the Express app
 const app: Express = express();
 app.use(express.json());
+app.use(cors());
 const PORT = config.port;
 
 
