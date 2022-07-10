@@ -27,4 +27,13 @@ export class WorkerService {
         await this.repositoryLayer.manager.save(newWorker);
         return newWorker;
     }
+
+    async checkWorkerExists(name: string, password: string): Promise<Worker | null> {
+        // check is the worker name and password exist for login
+        const worker = this.repositoryLayer.getRepository(Worker).findOneBy({
+            name: name,
+            password: crypto.createHash('sha256').update(password).digest('hex');
+        })
+        return worker;
+    }
 }
