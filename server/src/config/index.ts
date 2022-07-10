@@ -9,5 +9,6 @@ export default {
     databaseUser: process.env.DATABASE_USER,
     databasePassword: process.env.DATABASE_PASSWORD,
     databaseName: process.env.DATABASE_NAME,
-    databasePort: process.env.DATABASE_PORT || ''
+    databasePort: process.env.DATABASE_PORT || '',
+    tokenSecret: process.env.JWT_SECRET || ''
 }

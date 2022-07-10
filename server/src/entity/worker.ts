@@ -5,7 +5,7 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 export class Worker {
 
     @PrimaryGeneratedColumn()
-    id: number
+    id?: number
 
     @Column({ unique: true })
     name: string
