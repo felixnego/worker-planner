@@ -12,7 +12,7 @@ export class AuthService {
     constructor() {}
 
     generateAccessToken(workerName: string) {
-        return jwt.sign(workerName, this.TOKEN_SECRET, { expiresIn: this.expiresIn });
+        return jwt.sign({ workerName }, this.TOKEN_SECRET, { expiresIn: this.expiresIn });
     }
 
     verify(token: string, callback?: VerifyCallback<JwtPayload | string>) {
