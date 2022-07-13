@@ -4,4 +4,9 @@
     padding: 10px;
     border: 1px solid #ccc;
     height: 100px;
+
+    &.active {
+        background: rgb(171, 217, 170);
+        border-color: rgb(171, 217, 170);
+    }
 }

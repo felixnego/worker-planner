@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom"
+import { Link, Route, Routes, useLocation, useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import AddWorker from "./AddWorker"
 import Homepage from "./Homepage"
@@ -26,8 +26,6 @@ const Application = () => {
         }
     }
 
-    console.log(user);
-
     return(
         <div className={`container ${!user ?? 'mt-5 pt-5'}`}>
 
@@ -36,7 +34,10 @@ const Application = () => {
                     <header className="mb-5 pb-5 pt-3">
                         <div className="row">
                             <div className="col-12 text-end">
-                                Welcome, {user.name}
+                            <span>Welcome, {user.name}</span>
+                                <Link
+                                className="btn btn-primary btn-sm ms-4"
+                                to="/planner">Planner</Link>
                                 <button className="btn btn-light btn-sm ms-4">Logout</button>
                             </div>
                         </div>
